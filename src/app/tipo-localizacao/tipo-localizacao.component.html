@@ -1,0 +1,46 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+
+    <div class="card card-w-title">
+      <h1>Tipo Localização</h1>
+
+      <p-toolbar >
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <div class="ui-g-6 ">
+              <input type="text" placeholder="Consultar por descrição" size="30" pInputText>
+            </div>
+
+            <div class="ui-g-6 " style="text-align:right">
+              <button pButton type="button" icon="ui-icon-plus" class="green-btn" label="NOVO"></button>
+            </div>
+          </div>
+        </div>
+
+
+      </p-toolbar>
+      <p-table [value]="listaEntidade" [paginator]="true" rows="5" paginatorPosition="both">
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 100px">#</th>
+            <th>CÓDIGO</th>
+            <th>DESCRIÇÃO</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-entidade>
+          <tr>
+            <td>
+              <button pButton type="button" icon="ui-icon-edit" class="orange-btn"></button>
+            </td>
+            <td>{{entidade.codigo}}</td>
+            <td>{{entidade.descricao}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </div>
+</div>
+
+
+
