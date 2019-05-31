@@ -1,0 +1,15 @@
+version: '2'
+services:
+  peg-ui:
+    image: srv-rep02:5000/peg-ui.dev:latest
+    container_name: peg-ui.dev
+    ports:
+     - "8300:80"
+    networks:
+      - mynet
+    restart: unless-stopped
+
+networks:
+  mynet:
+    external:
+      name: mynet
