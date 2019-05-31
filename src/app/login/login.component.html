@@ -1,0 +1,32 @@
+<form autocomplete="off" #f="ngForm">
+    <div class="card login-panel ui-fluid">
+        <form autocomplete="off" #f="ngForm">
+            <div class="ui-g">
+                <div class="ui-g-12">
+                    <div class="ui-g-12" class="logo"></div>
+                </div>
+                <div class="ui-g-12">
+                    <label class="form-control-label">ALUNO EGRESSO</label>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                        <input id="usuario" name="usuario" pInputText type="text" ngModel autocomplete="off" required class="ui-inputtext ui-corner-all ui-state-default ui-widget" #usuario>
+                        <label>Login</label>
+                    </span>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                        <input id="senha" name="senha" pInputText type="password" ngModel required autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget" #senha>
+                        <label>Senha</label>
+                    </span>
+                </div>
+
+                <div class="ui-g-12">
+                    <button pButton type="submit" class="ui-button" icon="fa fa-user" label="Entrar" (click)="login(usuario.value, senha.value); senha.value = '';" [disabled]="(captcha && false) || f.invalid"></button>
+                    
+                    <button pButton type="button" class="ui-button-warning" routerLink="/esqueceu-senha" icon="fa fa-question-circle" label="Esqueceu a senha?"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</form>
