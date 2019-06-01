@@ -1,36 +1,30 @@
-<div class="ui-g">
+<div class="ui-g form-group">
   <div class="ui-g-12">
-
     <div class="card card-w-title">
       <h1>Tipo Localização</h1>
-
       <p-toolbar >
-        <div class="ui-g">
-          <div class="ui-g-12">
-            <div class="ui-g-6 ">
-              <input type="text" placeholder="Consultar por descrição" size="30" pInputText>
-            </div>
-
-            <div class="ui-g-6 " style="text-align:right">
-              <button pButton type="button" icon="ui-icon-plus" class="green-btn" label="NOVO"></button>
-            </div>
-          </div>
+        <div class="ui-toolbar-group-left">
+          <input type="text" pInputText placeholder="Filtro">
+          <button pButton button-consultar type="button" icon="ui-icon-search" ></button>
         </div>
-
-
+        <div class="ui-toolbar-group-right">
+          <button pButton button-cadastrar type="button" icon="ui-icon-plus" label="NOVO"
+                  routerLink="/tipo-localizacao/novo" ></button>
+        </div>
       </p-toolbar>
-      <p-table [value]="listaEntidade" [paginator]="true" rows="5" paginatorPosition="both">
+      <p-table [value]="listaEntidade" [paginator]="true" rows="5" paginatorPosition="both" >
         <ng-template pTemplate="header">
           <tr>
-            <th style="width: 100px">#</th>
+            <th col-acoes>AÇÕES</th>
             <th>CÓDIGO</th>
             <th>DESCRIÇÃO</th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-entidade>
+        <ng-template pTemplate="body" let-entidade >
           <tr>
-            <td>
-              <button pButton type="button" icon="ui-icon-edit" class="orange-btn"></button>
+            <td col-acoes>
+              <button pButton button-alterar type="button" icon="ui-icon-edit" ></button>
+              <button pButton  button-excluir type="button" icon="ui-icon-trash" ></button>
             </td>
             <td>{{entidade.codigo}}</td>
             <td>{{entidade.descricao}}</td>
@@ -38,7 +32,6 @@
         </ng-template>
       </p-table>
     </div>
-
   </div>
 </div>
 

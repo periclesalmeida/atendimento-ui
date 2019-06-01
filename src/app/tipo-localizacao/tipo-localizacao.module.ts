@@ -8,9 +8,12 @@ import {PanelModule} from 'primeng/panel';
 import {ButtonModule} from 'primeng/button';
 import {MenubarModule} from 'primeng/menubar';
 import {ToolbarModule} from 'primeng/primeng';
+import { TipoLocalizacaoCadastrarComponent } from './tipo-localizacao-cadastrar/tipo-localizacao-cadastrar.component';
+import {SharedModule} from '../shared/shared.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [TipoLocalizacaoComponent],
+  declarations: [TipoLocalizacaoComponent, TipoLocalizacaoCadastrarComponent],
   imports: [
     CommonModule,
     TipoLocalizacaoRoutingModule,
@@ -18,7 +21,10 @@ import {ToolbarModule} from 'primeng/primeng';
     PanelModule,
     ButtonModule,
     MenubarModule,
-    ToolbarModule
-  ]
+    ToolbarModule,
+    SharedModule,
+    FormsModule
+  ],
+  entryComponents: [TipoLocalizacaoCadastrarComponent]
 })
 export class TipoLocalizacaoModule { }

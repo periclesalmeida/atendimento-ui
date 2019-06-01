@@ -9,7 +9,6 @@ import {TipoLocalizacaoService} from './tipo-localizacao.service';
 export class TipoLocalizacaoComponent implements OnInit {
 
   listaEntidade: Array<any>;
-  entidade: any;
 
   constructor(private tipoLocalizacaoService: TipoLocalizacaoService) { }
 

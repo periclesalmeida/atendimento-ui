@@ -1,0 +1,30 @@
+
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <div class="card">
+        <h1><span>TIPO LOCALIZAÇÃO</span></h1>
+        <form #f="ngForm" autocomplete="off">
+          <p-panel>
+            <p-header>
+              <div class="ui-toolbar-group-left">
+                <button pButton button-consultar type="button" icon="ui-icon-search" title="CONSULTAR"></button>
+              </div>
+              <div class="ui-toolbar-group-right">
+                <button pButton button-salvar type="button"  icon="ui-icon-save" title="SALVAR"></button>
+              </div>
+            </p-header>
+
+            <div class="ui-g form-group">
+              <div class="ui-g-12 ">
+                <label>Descrição *</label><br/>
+                <input pInputText type="text" name="nome"  [(ngModel)]="entidade.descricao" #nome="ngModel" required style="width: 100%">
+                <app-message [control]="nome" error="required" text="Obrigatório informar a descrição"></app-message>
+              </div>
+            </div>
+          </p-panel>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
