@@ -32016,14 +32016,14 @@ body .ui-table .ui-table-thead > tr > th,
 body .ui-table .ui-table-tfoot > tr > td {
   font-weight: 500;
   background-color: #ffffff;
-  border: 0 none;
+  border: 1px solid #bdbdbd;
 }
 body .ui-table p-sortIcon {
   display: inline-block;
 }
 body .ui-table .ui-table-thead > tr > th {
   padding: 0.857em;
-  border: 0 none;
+  border: 1px solid #bdbdbd;
   text-align: left;
   font-weight: 500;
   border-top: 1px solid #bdbdbd;
@@ -32135,7 +32135,7 @@ body .ui-table .ui-table-tbody > tr {
 body .ui-table .ui-table-tbody > tr > td {
   background: inherit;
   padding: 0.714em 0.857em;
-  border: 0 none;
+  border: 1px solid #bdbdbd;
 }
 body .ui-table .ui-table-tbody > tr.ui-state-highlight {
   background-color: #5180ce;
