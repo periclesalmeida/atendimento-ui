@@ -25,6 +25,7 @@
     &.pi-chevron-right {@include icon-override("chevron_right");}
     &.pi-chevron-left {@include icon-override("chevron_left");}
     &.pi-chevron-down {@include icon-override("keyboard_arrow_down");}
+    &.pi-chevron-up {@include icon-override("keyboard_arrow_up");}
     &.pi-circle-off{@include icon-override("radio_button_unchecked");}
     &.pi-circle-on{@include icon-override("radio_button_checked");}
     &.pi-minus {@include icon-override("remove");}

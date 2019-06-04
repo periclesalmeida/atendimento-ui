@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "peg-ui": {
+    "atendimento-ui": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -12,7 +12,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/peg-ui",
+            "outputPath": "dist/atendimento-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -89,21 +89,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "peg-ui:build"
+            "browserTarget": "atendimento-ui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "peg-ui:build:production"
+              "browserTarget": "atendimento-ui:build:production"
             },
             "homologacao": {
-              "browserTarget": "peg-ui:build:homologacao"
+              "browserTarget": "atendimento-ui:build:homologacao"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "peg-ui:build"
+            "browserTarget": "atendimento-ui:build"
           }
         },
         "test": {
@@ -144,7 +144,7 @@
         }
       }
     },
-    "peg-ui-e2e": {
+    "atendimento-ui-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -152,11 +152,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "peg-ui:serve"
+            "devServerTarget": "atendimento-ui:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "peg-ui:serve:production"
+              "devServerTarget": "atendimento-ui:serve:production"
             }
           }
         },
