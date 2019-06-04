@@ -36,7 +36,7 @@ export class ErrorHandlerService {
         if ( typeof errorResponse.error === 'string') {
           msg = errorResponse.error;
         } else {
-          msg = errorResponse.error[0].mensagemUsuario;
+          msg = errorResponse.error[0].errorUser;
         }
       } catch (e) { }
 
@@ -46,8 +46,6 @@ export class ErrorHandlerService {
       msg = 'Erro ao processar serviço remoto. Tente novamente.';
       console.error('Ocorreu um erro', errorResponse);
     }
-
-//    this.messageService.add({ severity: 'error', detail: msg });
 
     this.alertaService.exibirErro(msg);
   }
