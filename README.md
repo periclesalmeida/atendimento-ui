@@ -29,9 +29,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Useful Commands
 
-`ng g component tipo-localizacao/tipo-localizacao-cadastrar --entryComponent=true  --module tipo-localizacao`
 `ng generate module tipo-localizacao --routing`
 `ng g service tipo-localizacao --flat=false`
+`ng g component tipo-localizacao/tipo-localizacao-cadastrar --entryComponent=true  --module tipo-localizacao`
 
 
 

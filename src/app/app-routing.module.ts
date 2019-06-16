@@ -14,6 +14,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'},
       {path: 'tipo-localizacao', loadChildren: './tipo-localizacao/tipo-localizacao.module#TipoLocalizacaoModule'},
+      {path: 'servico', loadChildren: './servico/servico.module#ServicoModule'},
     ]
   },
 
