@@ -1,0 +1,51 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <div class="card">
+        <h1><span>Serviço</span></h1>
+        <form #formEntidade="ngForm" autocomplete="off" (submit)="salvar()">
+          <p-panel>
+            <p-header>
+              <div class="ui-toolbar-group-left">
+                <button pButton button-consultar type="button" icon="ui-icon-search" title="VOLTAR PARA CONSULTA"
+                        routerLink="/servico"></button>
+              </div>
+              <div class="ui-toolbar-group-right">
+                <button pButton button-salvar type="submit" icon="ui-icon-save" title="SALVAR" [disabled]="formEntidade.invalid"></button>
+              </div>
+            </p-header>
+            <div class="ui-g form-group">
+              <div class="ui-g-12 ">
+                <div class="ui-g-6 ">
+                  <label>Descrição *</label><br/>
+                  <input pInputText type="text" name="descricao" [(ngModel)]="entidade.descricao" #descricao="ngModel" required style="width: 100%; ">
+                  <app-message [control]="descricao" error="required" text="Obrigatório informar a descrição"></app-message>
+                </div>
+                <div class="ui-g-6 ">
+                  <label>Sigla *</label><br/>
+                  <input pInputText type="text"  name="sigla" [(ngModel)]="entidade.sigla" #sigla="ngModel" required style="width: 100%; ">
+                  <app-message [control]="sigla" error="required" text="Obrigatório informar a sigla"></app-message>
+                </div>
+              </div>
+              <div class="ui-g-12 ">
+                <div class="ui-g-6 ">
+                  <label>Cor *</label><br/>
+                  <p-dropdown  name="cor" [(ngModel)]="entidade.tipoCorEnum" #cor="ngModel" optionLabel="name" [options]="cores"
+                              placeholder="SELECIONE" showClear="true" required="true"></p-dropdown>
+                  <app-message [control]="cor" error="required" text="Obrigatório informar a Cor"></app-message>
+                </div>
+                <div class="ui-g-6 ">
+                  <label>Ativo *</label><br/>
+                  <p-toggleButton name="ativo" [(ngModel)]="entidade.ativo" onLabel="SIM" offLabel="NÃO"></p-toggleButton>
+                </div>
+              </div>
+            </div>
+            <p-footer>
+              * Campo Obrigatório
+            </p-footer>
+          </p-panel>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
