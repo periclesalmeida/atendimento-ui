@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TipoLocalizacaoService} from './tipo-localizacao.service';
 import {TipoLocalizacao} from '../core/model';
+import {ITEMS_PER_PAGE} from '../shared/constant/pagination.constants';
+import {LazyLoadEvent} from 'primeng/api';
 
 @Component({
   selector: 'app-tipo-localizacao',
@@ -10,16 +12,39 @@ import {TipoLocalizacao} from '../core/model';
 export class TipoLocalizacaoComponent implements OnInit {
 
   listaEntidade: Array<TipoLocalizacao>;
+  entidade: TipoLocalizacao;
+  page: any;
+  size: any;
+  totalElements: any;
 
   constructor(private tipoLocalizacaoService: TipoLocalizacaoService) { }
 
   ngOnInit() {
-    this.consultarTodos();
+    this.entidade  = new TipoLocalizacao();
+    this.page =  0;
+    this.size = ITEMS_PER_PAGE;
+    this.consultar();
   }
 
-  consultarTodos() {
-    this.tipoLocalizacaoService.consultarTodos().subscribe(
-      retorno => this.listaEntidade = retorno
+  consultar() {
+    this.tipoLocalizacaoService.consultarPorEntidade(this.entidade, this.obterPaginacao()).subscribe (
+      retorno => {
+        this.listaEntidade = retorno.content;
+        this.totalElements = retorno.totalElements;
+      }
     );
+  }
+
+  loadLazy(event: LazyLoadEvent) {
+    this.page = event.first / event.rows;
+    this.consultar();
+  }
+
+  private obterPaginacao() : any {
+    return {
+      page: this.page,
+      size: this.size,
+      sort: 'descricao'
+    };
   }
 }
