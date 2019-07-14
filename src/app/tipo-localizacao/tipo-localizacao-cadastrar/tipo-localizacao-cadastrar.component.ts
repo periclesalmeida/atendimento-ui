@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {TipoLocalizacaoService} from '../tipo-localizacao.service';
 import {AlertaService} from '../../shared/alerta/alerta.service';
 import {ErrorHandlerService} from '../../shared/erro/error-handler.service';
+import {MESAGE_SUCCESSFULLY} from '../../shared/constant/mesage.constants';
 
 @Component({
   selector: 'app-tipo-localizacao-cadastrar',
@@ -52,7 +53,7 @@ export class TipoLocalizacaoCadastrarComponent implements OnInit {
   }
 
   private exibirAlertaDadosGravadosComSucesso() {
-    this.alertaService.exibirSucesso('Dados gravados com sucesso!');
+    this.alertaService.exibirSucesso(MESAGE_SUCCESSFULLY);
   }
 
   private direcionarParaConsulta() {
