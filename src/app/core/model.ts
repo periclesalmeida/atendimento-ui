@@ -14,9 +14,22 @@ export class Servico {
 }
 
 export class Localizacao {
-  sequencial:number;
+  sequencial: number;
   descricao: string;
   tipo: TipoLocalizacao;
   ativo: boolean
   servicos: Array<Servico>;
+}
+
+export class Permissao {
+  codigo: string;
+  descricao: string;
+}
+
+export class Usuario {
+  sequencial: number;
+  login: string;
+  senhaSemRash: string;
+  ativo: boolean;
+  permissoes: Array<Permissao>;
 }

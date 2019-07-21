@@ -1,0 +1,101 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <div class="card">
+        <h1><span>Usuário</span></h1>
+        <form #formEntidade="ngForm" autocomplete="off" (submit)="salvar()">
+          <p-panel>
+            <p-header>
+              <div class="ui-toolbar-group-left">
+                <button pButton button-consultar type="button" icon="ui-icon-search" title="VOLTAR PARA CONSULTA"
+                        routerLink="/usuario"></button>
+              </div>
+              <div class="ui-toolbar-group-right">
+                <button pButton button-salvar type="submit" icon="ui-icon-save" title="SALVAR" [disabled]="formEntidade.invalid"></button>
+              </div>
+            </p-header>
+            <div class="ui-g form-group">
+              <div class="ui-g-12 ">
+                <div class="ui-g-6 ">
+                  <label>Login *</label><br/>
+                  <input pInputText type="text" name="inputLogin"  [(ngModel)]="entidade.login" #inputLogin="ngModel"
+                         required style="width: 100%; ">
+                  <app-message [control]="inputLogin" error="required" text="Obrigatório informar o login"></app-message>
+                </div>
+                <div class="ui-g-3 ">
+                  <div *ngIf="operacaoInserir">
+                    <label>Senha * </label><br/>
+                    <input pInputText type="password" pPassword name="senha"  [(ngModel)]="entidade.senhaSemRash"
+                           #senha="ngModel"
+                           weakLabel="Senha fraca..." mediumLabel="Estamos quase lá..." strongLabel="Agora sim..." feedback="true"
+                           promptLabel="Informe a senha com número e letras"
+                           required
+                           style="width: 100%; ">
+                    <app-message [control]="senha" error="required" text="Obrigatório informar a senha"></app-message>
+                  </div>
+
+                  <div *ngIf="!operacaoInserir">
+                    <label>Senha  </label><br/>
+                    <input pInputText type="password" pPassword name="senha"  [(ngModel)]="entidade.senhaSemRash"
+                           weakLabel="Senha fraca..." mediumLabel="Estamos quase lá..." strongLabel="Agora sim..." feedback="true"
+                           promptLabel="Informe a senha com número e letras"
+                           style="width: 100%; ">
+                  </div>
+
+                </div>
+                <div class="ui-g-3 ">
+                  <label>Ativo *</label><br/>
+                  <p-toggleButton name="ativo" [(ngModel)]="entidade.ativo" onLabel="SIM" offLabel="NÃO"></p-toggleButton>
+                </div>
+              </div>
+              <p-panel>
+                <p-header>
+                  <div class="ui-toolbar-group-left">
+                    <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">Permissões</span>
+                  </div>
+                  <div class="ui-toolbar-group-right">
+                  </div>
+                </p-header>
+                <p-table #tablePermissao [value]="permissoes" [(selection)]="entidade.permissoes" dataKey="codigo" [scrollable]="true" scrollHeight="200px">
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th col-acoes >
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                      </th>
+                      <th >DESCRIÇÃO</th>
+                    </tr>
+                    <tr>
+                      <th>
+                      </th>
+                      <th >
+                        <input  pInputText type="text" (input)="tablePermissao.filter($event.target.value, 'descricao', 'contains')">
+                      </th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-entidade >
+                    <tr [pSelectableRow]="entidade">
+                      <td col-acoes>
+                        <p-tableCheckbox [value]="entidade"></p-tableCheckbox>
+                      </td>
+                      <td style="text-align: center">{{entidade.descricao}}</td>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="emptymessage" let-columns>
+                    <tr>
+                      <td [attr.colspan]="2">
+                        Nenhum serviço selecionado
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </p-panel>
+            </div>
+            <p-footer>
+              * Campo Obrigatório
+            </p-footer>
+          </p-panel>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

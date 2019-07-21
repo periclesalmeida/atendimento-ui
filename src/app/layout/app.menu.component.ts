@@ -13,7 +13,6 @@ import { AuthService } from '../seguranca/auth.service';
   `
 })
 export class AppMenuComponent implements OnInit {
-
   @Input() reset: boolean;
 
   model: any[];
@@ -26,6 +25,7 @@ export class AppMenuComponent implements OnInit {
       {label: 'Tipo Localização', icon: 'local_offer', routerLink: ['/tipo-localizacao'], permission: ['ROLE_TIPO_LOCALIZACAO_CONSULTAR']},
       {label: 'Serviço', icon: 'build', routerLink: ['/servico'], permission: ['ROLE_SERVICO_CONSULTAR']},
       {label: 'Localização', icon: 'bookmark', routerLink: ['/localizacao'], permission: ['ROLE_LOCALIZACAO_CONSULTAR']},
+      {label: 'Usuário', icon: 'contacts', routerLink: ['/usuario'], permission: ['ROLE_USUARIO_CONSULTAR']},
       {label: 'Sair', icon: 'power_settings_new', command: (event) => {this.logout(); }}
     ];
   }
