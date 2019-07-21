@@ -22,9 +22,10 @@ export class AppMenuComponent implements OnInit {
 
   ngOnInit() {
     this.model = [
-      {label: 'Dashboard', icon: 'dashboard', routerLink: ['/dashboard'], permission: ['ROLE_SAC_PARAMETRO_GERAL_CONSULTAR_']},
+      {label: 'Dashboard', icon: 'dashboard', routerLink: ['/dashboard'], permission: ['ROLE_TIPO_LOCALIZACAO_CONSULTAR']},
       {label: 'Tipo Localização', icon: 'local_offer', routerLink: ['/tipo-localizacao'], permission: ['ROLE_TIPO_LOCALIZACAO_CONSULTAR']},
       {label: 'Serviço', icon: 'build', routerLink: ['/servico'], permission: ['ROLE_SERVICO_CONSULTAR']},
+      {label: 'Localização', icon: 'bookmark', routerLink: ['/localizacao'], permission: ['ROLE_LOCALIZACAO_CONSULTAR']},
       {label: 'Sair', icon: 'power_settings_new', command: (event) => {this.logout(); }}
     ];
   }

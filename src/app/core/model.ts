@@ -12,3 +12,11 @@ export class Servico {
  tipoCorEnum: any;
  ativo: boolean;
 }
+
+export class Localizacao {
+  sequencial:number;
+  descricao: string;
+  tipo: TipoLocalizacao;
+  ativo: boolean
+  servicos: Array<Servico>;
+}

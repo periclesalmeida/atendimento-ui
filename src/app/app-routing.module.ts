@@ -15,6 +15,7 @@ const routes: Routes = [
       {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'},
       {path: 'tipo-localizacao', loadChildren: './tipo-localizacao/tipo-localizacao.module#TipoLocalizacaoModule'},
       {path: 'servico', loadChildren: './servico/servico.module#ServicoModule'},
+      {path: 'localizacao', loadChildren: './localizacao/localizacao.module#LocalizacaoModule'}
     ]
   },
 
