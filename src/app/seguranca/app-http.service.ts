@@ -37,7 +37,7 @@ export class AppHttp extends HttpClient {
     return this.fazerRequisicao<T>(() => super.get<T>(url, options));
   }
 
-  public post<T>(url: string, body: any, options?: any): Observable<T> {
+  public post<T>(url: string, body?: any, options?: any): Observable<T> {
     return this.fazerRequisicao<T>(() => super.post<T>(url, body, options));
   }
 

@@ -29,7 +29,7 @@
             <tr>
               <td col-acoes>
                 <button pButton button-alterar type="button" icon="ui-icon-edit"
-                        [routerLink]="['/usuario', entidade.sequencial]" ></button>
+                        [routerLink]="['/usuario', entidade.id]" ></button>
               </td>
               <td style="text-align: center">{{entidade.login}}</td>
               <td style="text-align: center" *ngIf="entidade.ativo">SIM</td>

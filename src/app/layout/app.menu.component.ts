@@ -26,6 +26,8 @@ export class AppMenuComponent implements OnInit {
       {label: 'Serviço', icon: 'build', routerLink: ['/servico'], permission: ['ROLE_SERVICO_CONSULTAR']},
       {label: 'Localização', icon: 'bookmark', routerLink: ['/localizacao'], permission: ['ROLE_LOCALIZACAO_CONSULTAR']},
       {label: 'Usuário', icon: 'contacts', routerLink: ['/usuario'], permission: ['ROLE_USUARIO_CONSULTAR']},
+      {label: 'Atendimento Gerar', icon: 'rss_feed', routerLink: ['/atendimento/gerar'], permission: ['ROLE_SERVICO_CONSULTAR']},
+      {label: 'Atendimento', icon: 'people', routerLink: ['/atendimento/atender'], permission: ['ROLE_SERVICO_CONSULTAR']},
       {label: 'Sair', icon: 'power_settings_new', command: (event) => {this.logout(); }}
     ];
   }

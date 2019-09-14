@@ -17,7 +17,7 @@ export class LocalizacaoService {
   }
 
   consultarPorEntidade(entidade: Localizacao, paginacao): any {
-    return this.appHttp.post<any>(`${this.resourceUrl}/consulta`, entidade, {params: paginacao});
+    return this.appHttp.get<any>(`${this.resourceUrl}/consulta`, {params: Object.assign(entidade, paginacao)});
   }
 
   consultarPorId(codigo): any {
@@ -29,6 +29,6 @@ export class LocalizacaoService {
   }
 
   alterar(entidade: Localizacao): any {
-    return this.appHttp.put<any>(`${this.resourceUrl}/${entidade.sequencial}`, entidade);
+    return this.appHttp.put<any>(`${this.resourceUrl}/${entidade.id}`, entidade);
   }
 }

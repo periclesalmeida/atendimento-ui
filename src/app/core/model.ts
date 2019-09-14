@@ -1,35 +1,51 @@
-export class TipoLocalizacao {
-  codigo: number;
-  descricao: string;
-}
-
-export class Servico {
- sequencial: number;
- descricao: string;
- sigla: string;
- tipoCor: string;
- numeroAtendimentoAtual: number;
- tipoCorEnum: any;
- ativo: boolean;
-}
-
-export class Localizacao {
-  sequencial: number;
-  descricao: string;
-  tipo: TipoLocalizacao;
-  ativo: boolean
-  servicos: Array<Servico>;
-}
-
 export class Permissao {
-  codigo: string;
+  id: string;
   descricao: string;
 }
 
 export class Usuario {
-  sequencial: number;
+  id: string;
   login: string;
   senhaSemRash: string;
   ativo: boolean;
   permissoes: Array<Permissao>;
+}
+
+export class TipoLocalizacao {
+  id: string;
+  descricao: string;
+}
+
+export class Servico {
+  id: string;
+  descricao: string;
+  sigla: string;
+  tipoCor: string;
+  numeroAtendimentoAtual: number;
+  tipoCorEnum: any;
+  tipoCorHtml: any;
+  ativo: boolean;
+}
+
+export class Localizacao {
+  id: string;
+  descricao: string;
+  tipo: TipoLocalizacao;
+  ativo: boolean;
+  servicos: Array<Servico>;
+}
+
+export class Atendimento {
+  id: string;
+  numeroAtendimento: number;
+  dataHoraCadastro: Date;
+  dataHoraApresentacao: Date;
+  dataHoraChamada: Date;
+  localizacao: Localizacao;
+  servico: Servico;
+  usuario: Usuario;
+  indicadorPrioridade: boolean;
+  dataHoraCadastroFormatada: string;
+  numeroAtendimentoFormatado: string;
+  tempoDecorrido: string;
 }

@@ -3,6 +3,11 @@
   width: 150px;
 }
 
+[col-cor] {
+  text-align: center !important;
+  width: 50px !important;
+}
+
 [button-cadastrar] {
   background-color: #5180ce !important;
 }
@@ -23,11 +28,6 @@
   background-color: #f44336 !important;
 }
 
-[col-cor] {
-  text-align: center !important;
-  width: 50px !important;
-}
-
 [pinputtext] {
   text-transform: uppercase;
 }
@@ -35,4 +35,13 @@
 body .ui-table .ui-table-thead > tr > th {
   font-weight: bold;
   text-align: center;
+}
+
+body .ui-dialog .ui-dialog-content {
+  background-color: #ffd966 !important;
+}
+
+
+.ui-dialog-resizable .ui-dialog-content {
+  background-color: #ffd966 !important;
 }

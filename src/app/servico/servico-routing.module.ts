@@ -18,7 +18,7 @@ const routes: Routes = [
     data: { roles: ['ROLE_SERVICO_INCLUIR'] }
   },
   {
-    path: ':sequencial',
+    path: ':id',
     component: ServicoCadastrarComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_SERVICO_ALTERAR'] }

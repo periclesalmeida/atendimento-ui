@@ -16,7 +16,8 @@ const routes: Routes = [
       {path: 'usuario', loadChildren: './usuario/usuario.module#UsuarioModule'},
       {path: 'tipo-localizacao', loadChildren: './tipo-localizacao/tipo-localizacao.module#TipoLocalizacaoModule'},
       {path: 'servico', loadChildren: './servico/servico.module#ServicoModule'},
-      {path: 'localizacao', loadChildren: './localizacao/localizacao.module#LocalizacaoModule'}
+      {path: 'localizacao', loadChildren: './localizacao/localizacao.module#LocalizacaoModule'},
+      {path: 'atendimento', loadChildren: './atendimento/atendimento.module#AtendimentoModule'}
     ]
   },
 

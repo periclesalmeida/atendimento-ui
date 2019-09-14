@@ -24,8 +24,9 @@ export class ServicoCadastrarComponent implements OnInit {
               private errorHandlerService: ErrorHandlerService) { }
 
   ngOnInit() {
-    const sequencial = this.activatedRoute.snapshot.params['sequencial'];
+    const sequencial = this.activatedRoute.snapshot.params['id'];
     this.carregarCores();
+    this.entidade = new Servico();
     this.verificarSeInclusaoOuAlteracao(sequencial);
   }
 
@@ -74,12 +75,15 @@ export class ServicoCadastrarComponent implements OnInit {
     if (sequencial) {
       this.operacaoInserir = false;
       this.servicoService.consultarPorId(sequencial).subscribe(
-        retorno => this.entidade = retorno
+        retorno => this.setarRetornoNaEntidade(retorno)        
       );
     } else {
-      this.operacaoInserir = true;
-      this.entidade = new Servico();
+      this.operacaoInserir = true;      
       this.entidade.ativo = true;
     }
+  }
+
+  private setarRetornoNaEntidade(retorno) {
+    this.entidade = retorno;
   }
 }

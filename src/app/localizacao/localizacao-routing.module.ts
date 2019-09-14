@@ -18,7 +18,7 @@ const routes: Routes = [
     data: { roles: ['ROLE_LOCALIZACAO_INCLUIR'] }
   },
   {
-    path: ':sequencial',
+    path: ':id',
     component: LocalizacaoCadastrarComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_LOCALIZACAO_ALTERAR'] }

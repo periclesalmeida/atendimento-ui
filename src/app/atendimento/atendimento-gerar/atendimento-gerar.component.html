@@ -1,3 +1,68 @@
-<p>
-  atendimento-gerar works!
-</p>
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <div class="card">
+        <p-panel>
+          <p-header>
+            <div class="ui-toolbar-group-center">
+              <h1><span>Gerar Senha para o Serviço:</span></h1>
+            </div>
+          </p-header>
+          <div class="ui-g dashboard">
+            <div class="ui-g-12">
+              <div *ngFor="let entidade of servicos">
+                <div class="ui-g-12">
+                  <div class="ui-g-3">
+                  </div>
+                  <div class="ui-g-6" >
+                    <a (click)="gerar(entidade)" href="javascript:void(0)">
+                      <div class="ui-g card colorbox " [ngStyle]="{ 'background-color' : entidade.tipoCorHtml }">
+                        <div class="ui-g-12">
+                          <span class="colorbox-count">{{entidade.descricao}}</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="ui-g-2">
+                    <a (click)="gerarPrioridade(entidade)" href="javascript:void(0)">
+                      <div class="ui-g card colorbox " [ngStyle]="{ 'background-color' : entidade.tipoCorHtml }">
+                        <div class="ui-g-12">
+                          <span class="colorbox-count">
+                            <span style="font-size: 18px;">PREFERÊNCIAL</span>
+                          </span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="ui-g-1">
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-panel>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p-dialog header="SENHA" [(visible)]="exibirDialog" [modal]="true" [responsive]="true"
+          [style]="{width: '250px', minWidth: '200px', margin:'0px'}"
+          [showHeader]="false">
+
+  <div style="text-align: center; background-color: #ffd966">
+    <span style="font-size: 18px;">SENHA</span><br/><br/>
+    <span style="font-size: 60px; font-weight: bold;">{{entidade?.numeroAtendimentoFormatado}}</span><br/>
+    <span style="font-size: 18px;" *ngIf="entidade?.indicadorPrioridade">PREFERÊNCIAL</span><br/><br/>
+    <span>SERVIÇO</span><br/>
+    <span style="font-size: 18px;">{{entidade?.servico.descricao}}</span><br/><br/>
+    <span style="font-size: 12px;">{{entidade?.dataHoraCadastroFormatada}}</span><br/>
+    <span style="font-size: 12px;">Aguarde sua senha ser chamada.</span><br/>
+  </div>
+  <p-footer>
+    <button type="button" pButton icon="pi pi-print" (click)="exibirDialog=false" label="Imprimir"></button>
+  </p-footer>
+</p-dialog>

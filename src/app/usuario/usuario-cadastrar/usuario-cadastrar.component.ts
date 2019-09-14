@@ -26,7 +26,8 @@ export class UsuarioCadastrarComponent implements OnInit {
               private errorHandlerService: ErrorHandlerService) { }
 
   ngOnInit() {
-    const sequencial = this.activatedRoute.snapshot.params['sequencial'];
+    const sequencial = this.activatedRoute.snapshot.params['id'];
+    this.entidade = new Usuario();
     this.verificarSeInclusaoOuAlteracao(sequencial);
     this.carregarPermissoes();
   }
@@ -74,8 +75,7 @@ export class UsuarioCadastrarComponent implements OnInit {
         retorno => this.entidade = retorno
       );
     } else {
-      this.operacaoInserir = true;
-      this.entidade = new Usuario();
+      this.operacaoInserir = true;      
       this.entidade.ativo = true;
     }
   }

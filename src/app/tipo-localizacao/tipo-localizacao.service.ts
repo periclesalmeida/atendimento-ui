@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {AppHttp} from '../seguranca/app-http.service';
 import {TipoLocalizacao} from '../core/model';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,11 @@ export class TipoLocalizacaoService {
   }
 
   consultarPorEntidade(entidade: TipoLocalizacao, paginacao): any {
-    return this.appHttp.post<any>(`${this.resourceUrl}/consulta`, entidade, {params: paginacao});
+    return this.appHttp.get<any>(`${this.resourceUrl}/consulta`, {params: Object.assign(entidade, paginacao)});
   }
 
-  consultarPorId(codigo): any {
-    return this.appHttp.get<any>(`${this.resourceUrl}/${codigo}`);
+  consultarPorId(id): any {
+    return this.appHttp.get<any>(`${this.resourceUrl}/${id}`);
   }
 
   inserir(entidade: TipoLocalizacao): any {
@@ -29,6 +30,6 @@ export class TipoLocalizacaoService {
   }
 
   alterar(entidade: TipoLocalizacao): any {
-    return this.appHttp.put<any>(`${this.resourceUrl}/${entidade.codigo}`, entidade);
+    return this.appHttp.put<any>(`${this.resourceUrl}/${entidade.id}`, entidade);
   }
 }

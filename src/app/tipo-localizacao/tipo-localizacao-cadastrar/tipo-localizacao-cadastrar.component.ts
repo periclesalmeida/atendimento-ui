@@ -24,7 +24,7 @@ export class TipoLocalizacaoCadastrarComponent implements OnInit {
   }
 
   ngOnInit() {
-    const codigo = this.activatedRoute.snapshot.params['codigo'];
+    const codigo = this.activatedRoute.snapshot.params['id'];
     this.operacaoInserir = true;
     this.entidade = new TipoLocalizacao();
     this.carregarEntidadeSeCodigoInformado(codigo);

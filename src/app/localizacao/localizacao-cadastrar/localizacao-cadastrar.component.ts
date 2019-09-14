@@ -30,7 +30,8 @@ export class LocalizacaoCadastrarComponent implements OnInit {
               private errorHandlerService: ErrorHandlerService) { }
 
   ngOnInit() {
-    const sequencial = this.activatedRoute.snapshot.params['sequencial'];
+    const sequencial = this.activatedRoute.snapshot.params['id'];
+    this.entidade = new Localizacao();
     this.verificarSeInclusaoOuAlteracao(sequencial);
     this.carregarTipos();
     this.carregarServicos();
@@ -85,8 +86,7 @@ export class LocalizacaoCadastrarComponent implements OnInit {
         retorno => this.entidade = retorno
       );
     } else {
-      this.operacaoInserir = true;
-      this.entidade = new Localizacao();
+      this.operacaoInserir = true;      
       this.entidade.ativo = true;
     }
   }

@@ -13,7 +13,7 @@ export class UsuarioService {
   constructor(private appHttp: AppHttp) { }
 
   consultarPorEntidade(entidade: Usuario, paginacao): any {
-    return this.appHttp.post<any>(`${this.resourceUrl}/consulta`, entidade, {params: paginacao});
+    return this.appHttp.get<any>(`${this.resourceUrl}/consulta`, {params: Object.assign(entidade, paginacao)});
   }
 
   consultarPorId(sequencial): any {
@@ -25,6 +25,6 @@ export class UsuarioService {
   }
 
   alterar(entidade: Usuario): any {
-    return this.appHttp.put<any>(`${this.resourceUrl}/${entidade.sequencial}`, entidade);
+    return this.appHttp.put<any>(`${this.resourceUrl}/${entidade.id}`, entidade);
   }
 }
