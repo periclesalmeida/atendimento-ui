@@ -47,13 +47,13 @@ export class LocalizacaoCadastrarComponent implements OnInit {
 
   private carregarServicos() {
     this.servicoService.consultarTodos().subscribe(
-      retorno => this.servicos = retorno
+      retorno => this.servicos = retorno.content
     );
   }
 
   private carregarTipos() {
     this.tipoLocalizacaoService.consultarTodos().subscribe(
-      retorno => this.tipos = retorno
+      retorno => this.tipos = retorno.content
     );
   }
 

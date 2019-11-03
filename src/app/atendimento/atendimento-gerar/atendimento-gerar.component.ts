@@ -41,7 +41,7 @@ export class AtendimentoGerarComponent implements OnInit {
 
   private carregarServico() {
     return this.servicoService.consultarTodos().subscribe(
-      retorno => this.servicos = retorno
+      retorno => this.servicos = retorno.content
     );
   }
 }

@@ -13,12 +13,12 @@ export class TipoLocalizacaoService {
 
   constructor(private appHttp: AppHttp) { }
 
-  consultarTodos(): any {
-    return this.appHttp.get<any>(this.resourceUrl);
+  consultarTodos(paginacao?): any {
+    return this.appHttp.get<any>(`${this.resourceUrl}`, {params: paginacao});
   }
 
   consultarPorEntidade(entidade: TipoLocalizacao, paginacao): any {
-    return this.appHttp.get<any>(`${this.resourceUrl}/consulta`, {params: Object.assign(entidade, paginacao)});
+    return this.appHttp.get<any>(`${this.resourceUrl}`, {params: Object.assign(entidade, paginacao)});
   }
 
   consultarPorId(id): any {

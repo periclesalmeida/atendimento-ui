@@ -83,7 +83,7 @@ export class AtendimentoAtenderComponent implements OnInit {
 
   private carregarLocalizacao() {
     return this.localizacaoService.consultarTodos().subscribe(
-      retorno => this.localizacoes = retorno
+      retorno => this.localizacoes = retorno.content
     );
   }
 
