@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalizacaoService } from '../../localizacao/localizacao.service';
 import { Atendimento, Localizacao } from '../../core/model';
 import { AtendimentoService } from '../atendimento.service';
+import { log } from 'util';
 
 
 @Component({
@@ -19,17 +20,20 @@ export class AtendimentoAtenderComponent implements OnInit {
 
   constructor(private localizacaoService: LocalizacaoService,
               private atendimentoService: AtendimentoService) {
-
-    setInterval(() => this.carregarMovimentacaoAtendimentos(), 5000);
   }
 
   ngOnInit() {
     this.carregarLocalizacao();
   }
 
+  ngOnDestroy(): void {
+    this.limpar();
+  }
+  
   selecionarLocalizacao(localizacao: Localizacao) {
     this.localizacao = localizacao;
     this.carregarMovimentacaoAtendimentos();
+    this.carregarMovimentacaoEmIntervalosDeCincoSegundos();
   }
 
   alterarLocalizacao() {
@@ -57,6 +61,14 @@ export class AtendimentoAtenderComponent implements OnInit {
     this.carregarMovimentacaoAtendimentos();
   }
 
+  private carregarMovimentacaoEmIntervalosDeCincoSegundos() {
+    setInterval(() => this.carregarMovimentacaoAtendimentos(), 5000);
+  }
+
+  private cancelarCarregamentoDeMovimentacao() {
+    clearInterval();
+  }
+
   private setarEntidade(retorno) {
     this.carregarMovimentacaoAtendimentos();
     this.entidade = retorno;
@@ -65,20 +77,23 @@ export class AtendimentoAtenderComponent implements OnInit {
   private limpar() {
     this.entidade = null;
     this.localizacao = null;
+    this.cancelarCarregamentoDeMovimentacao();
   }
 
   private carregarMovimentacaoAtendimentos() {
 
-    let servicosIds = this.localizacao.servicos.map(function (servico) {
-      return servico.id
-    });
-
-    return this.atendimentoService.consutlarMovimentacaoPorLocalizacao(servicosIds).subscribe(
-      retorno => {
-        this.atendimentosEmEspera = retorno.atendimentosEmEspera;
-        this.atendimentosRealizados = retorno.atendimentosRealizados;
-      }
-    );
+    if (this.localizacao) {
+      let servicosIds = this.localizacao.servicos.map(function (servico) {
+        return servico.id
+      });
+  
+      return this.atendimentoService.consutlarMovimentacaoPorLocalizacao(servicosIds).subscribe(
+        retorno => {
+          this.atendimentosEmEspera = retorno.atendimentosEmEspera;
+          this.atendimentosRealizados = retorno.atendimentosRealizados;
+        }
+      );
+    }
   }
 
   private carregarLocalizacao() {

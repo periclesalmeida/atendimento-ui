@@ -1,9 +1,9 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {PaginaNaoEncontradaComponent} from './shared/erro/pagina-nao-encontrada.component';
-import {LoginComponent} from './login/login.component';
-import {LayoutComponent} from './layout/layout.component';
-import {AuthGuard} from './seguranca/auth.guard';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './seguranca/auth.guard';
+import { PaginaNaoEncontradaComponent } from './shared/erro/pagina-nao-encontrada.component';
 
 const routes: Routes = [
   {
@@ -17,10 +17,10 @@ const routes: Routes = [
       {path: 'tipo-localizacao', loadChildren: './tipo-localizacao/tipo-localizacao.module#TipoLocalizacaoModule'},
       {path: 'servico', loadChildren: './servico/servico.module#ServicoModule'},
       {path: 'localizacao', loadChildren: './localizacao/localizacao.module#LocalizacaoModule'},
-      {path: 'atendimento', loadChildren: './atendimento/atendimento.module#AtendimentoModule'}
+      {path: 'atendimento', loadChildren: './atendimento/atendimento.module#AtendimentoModule'},
+      {path: 'monitor', loadChildren: './monitor/monitor.module#MonitorModule'}
     ]
   },
-
   {path: 'login', component: LoginComponent},
   {path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent},
   {path: '**', redirectTo: '/login'},
