@@ -25,14 +25,16 @@ export class MonitorTelaComponent implements OnInit {
     this.carregarAtendimentos();
   }
 
+  apresentarProximoAtendimento() {
+  }
+
   private carregarAtendimentos() {
     return this.atendimentoService.consultarMovimentacaoChamadaPorServicos(this.servicos).subscribe(
       retorno => {
         // TODO Ajustas os atendimentos esperados
-        this.atendimentosApresentados = retorno.atendimentosNaoApresentados;
+        this.atendimentosApresentados = retorno.atendimentosNaoApresentados.slice(0,5);
         this.ultimoAtendimentoApresentado = retorno.proximoAtendimentoApresentado;
         this.proximoAtendimentoApresentado = retorno.proximoAtendimentoApresentado;
       });
   }
-
 }
