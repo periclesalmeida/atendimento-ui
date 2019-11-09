@@ -86,6 +86,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { AlertaService } from './shared/alerta/alerta.service';
 import { PaginaNaoEncontradaComponent } from './shared/erro/pagina-nao-encontrada.component';
+import { MonitorTelaComponent } from './monitor-tela/monitor-tela.component';
 
 
 
@@ -178,6 +179,7 @@ registerLocaleData(localePt);
         AppFooterComponent,
         AppInlineProfileComponent,
         PaginaNaoEncontradaComponent,
+        MonitorTelaComponent,
         LayoutComponent
     ],
     providers: [

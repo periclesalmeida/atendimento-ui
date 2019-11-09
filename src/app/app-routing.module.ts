@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './seguranca/auth.guard';
 import { PaginaNaoEncontradaComponent } from './shared/erro/pagina-nao-encontrada.component';
+import { MonitorTelaComponent } from './monitor-tela/monitor-tela.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       {path: 'monitor', loadChildren: './monitor/monitor.module#MonitorModule'}
     ]
   },
+  {path: 'monitor-tela/:servicos', component: MonitorTelaComponent},
   {path: 'login', component: LoginComponent},
   {path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent},
   {path: '**', redirectTo: '/login'},

@@ -43,6 +43,7 @@
                 </div>
                 <div class="ui-g-6">
                   <button icon="ui-icon-airplay" pButton type="button" label="ABRIR MONITOR" style="margin-bottom:10px"
+                    [routerLink]="['/monitor-tela', getServicosIds()]"
                     class="ui-button-info"></button>
                   <button icon="ui-icon-clear" (click)="limparTudo()" pButton type="button" label="LIMPAR SELEÇÃO" style="margin-bottom:10px"
                     class="ui-button-danger"></button>

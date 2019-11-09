@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalizacaoService } from '../../localizacao/localizacao.service';
 import { Atendimento, Localizacao } from '../../core/model';
+import { LocalizacaoService } from '../../localizacao/localizacao.service';
 import { AtendimentoService } from '../atendimento.service';
-import { log } from 'util';
 
 
 @Component({

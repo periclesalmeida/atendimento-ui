@@ -21,13 +21,22 @@ export class MonitorSelecionarServicoComponent implements OnInit {
 
   selecionarServico(servico: Servico) {
     this.servicosSelecionados.push(servico);
-    console.log(this.servicosSelecionados);
   }
 
   removerServico(servico: Servico) {
     this.servicosSelecionados.forEach((item, index) => {
       if (item.id === servico.id) { this.servicosSelecionados.splice(index, 1); }
     });
+  }
+
+  getServicosIds() {
+    let servicosIds = null;
+    if (this.servicosSelecionados) {
+       servicosIds = this.servicosSelecionados.map(function (servico) {
+        return servico.id
+      });
+    }
+    return servicosIds.toString();
   }
 
   limparTudo() {

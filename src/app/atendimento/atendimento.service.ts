@@ -20,6 +20,10 @@ export class AtendimentoService {
     return this.appHttp.get<any>(`${this.resourceUrl}/movimentacao/${servicos}`);
   }
 
+  consultarMovimentacaoChamadaPorServicos(servicos): any {
+    return this.appHttp.get<any>(`${this.resourceUrl}/movimentacao-chamado/${servicos}`);
+  }
+
   gerar(servico: Servico): any {
     return this.appHttp.post<any>(`${this.resourceUrl}/gerar/${servico.id}`);
   }
