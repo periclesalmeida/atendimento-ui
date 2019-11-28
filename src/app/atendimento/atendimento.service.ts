@@ -25,7 +25,7 @@ export class AtendimentoService {
   }
 
   apresentar(atendimento: Atendimento) {
-    return this.appHttp.post<any>(`${this.resourceUrl}/apresentar/`, atendimento);
+    return this.appHttp.post<any>(`${this.resourceUrl}/apresentar/${atendimento.id}`);
   }
 
   gerar(servico: Servico): any {

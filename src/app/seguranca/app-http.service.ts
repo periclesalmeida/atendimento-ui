@@ -54,7 +54,6 @@ export class AppHttp extends HttpClient {
           if (this.auth.isAccessTokenInvalido()) {
             throw new NotAuthenticatedError();
           }
-
           return fn().toPromise();
         });
 

@@ -15,19 +15,21 @@
           SENHA:
         </span>
         <br />
-        <span class="font-size-3" spanSenha
-          [ngStyle]="{ 'color' : ultimoAtendimentoApresentado.indicadorPrioridade ? '#FFFF00':'#ffffff' }">
-          <span id="target">{{ultimoAtendimentoApresentado?.numeroAtendimentoFormatado}}</span>
-        </span>
-        <div *ngIf="ultimoAtendimentoApresentado?.indicadorPrioridade">
-          <br />
-          <span class="font-size-1" spanPrioridade>
-            PRIORIDADE
+        <div [@flash]="flash" >
+          <span class="font-size-3" spanSenha
+            [ngStyle]="{ 'color' : ultimoAtendimentoApresentado?.indicadorPrioridade ? '#FFFF00':'#ffffff' }">
+            <span id="target">{{ultimoAtendimentoApresentado?.numeroAtendimentoFormatado}}</span>
           </span>
+          <div *ngIf="ultimoAtendimentoApresentado?.indicadorPrioridade">
+            <br />
+            <span class="font-size-1" spanPrioridade>
+              PRIORIDADE
+            </span>
+          </div>
         </div>
       </div>
     </div>
-    <div *ngIf="ultimoAtendimentoApresentado.usuario">
+    <div *ngIf="ultimoAtendimentoApresentado?.usuario">
       <div divFuncionario>
         <div>
           <span class="font-size-1" spanFuncionarioDescricao>
