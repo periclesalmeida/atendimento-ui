@@ -18,7 +18,7 @@ export class MonitorTelaComponent implements OnInit {
   atendimentosApresentados: Array<Atendimento>;
   ultimoAtendimentoApresentado: Atendimento;
   proximoAtendimentoApresentado: Atendimento;
-  private servicos: any;
+  servicos: any;
   flash: any = 'stateA';
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -28,20 +28,27 @@ export class MonitorTelaComponent implements OnInit {
 
   ngOnInit() {
     this.carregarAtendimentos();
-    setInterval(() => this.verificarSeExisteProximoAtendimentoIhApresentar(), 5000);
+    setInterval(() => this.verificarAtendimentosIhApresentarSeExistir(), 5000);
   }
 
   ngOnDestroy(): void {
     clearInterval();
   }
 
-  private verificarSeExisteProximoAtendimentoIhApresentar() {
-    if (this.proximoAtendimentoApresentado) {
-      this.carregarAtendimentos();
+  private verificarAtendimentosIhApresentarSeExistir() {
+    if (this.isAtendimentoDeveSerApresentado()) {
+      console.log('ultimo='+this.ultimoAtendimentoApresentado.numeroAtendimentoFormatado);
+      console.log('proximo='+this.proximoAtendimentoApresentado.numeroAtendimentoFormatado);
       this.apresentarProximoAtendimento();
       this.turnOnAnimate();
       this.turnOffAnimate();
     }
+    this.carregarAtendimentos();
+  }
+
+  private isAtendimentoDeveSerApresentado() {
+    return this.proximoAtendimentoApresentado &&
+           (this.proximoAtendimentoApresentado.id != this.ultimoAtendimentoApresentado.id);
   }
 
   private apresentarProximoAtendimento() {
@@ -50,7 +57,7 @@ export class MonitorTelaComponent implements OnInit {
         this.ultimoAtendimentoApresentado = retorno;
       }
     );
-  } 
+  }
 
   private turnOnAnimate() {
     this.flash = 'stateB';
@@ -68,7 +75,7 @@ export class MonitorTelaComponent implements OnInit {
         if (!this.ultimoAtendimentoApresentado) {
           this.ultimoAtendimentoApresentado = retorno.ultimoAtendimentoApresentado;
         }
-        this.atendimentosApresentados = retorno.atendimentosApresentados.slice(0, 5);
+        this.atendimentosApresentados = retorno.atendimentosApresentados.slice(0,5);
         this.proximoAtendimentoApresentado = retorno.proximoAtendimentoApresentado;
       });
   }
