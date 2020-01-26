@@ -37,13 +37,19 @@ export class MonitorTelaComponent implements OnInit {
 
   private verificarAtendimentosIhApresentarSeExistir() {
     if (this.isAtendimentoDeveSerApresentado()) {
-      console.log('ultimo='+this.ultimoAtendimentoApresentado.numeroAtendimentoFormatado);
-      console.log('proximo='+this.proximoAtendimentoApresentado.numeroAtendimentoFormatado);
       this.apresentarProximoAtendimento();
+      this.executarCampainha();
       this.turnOnAnimate();
       this.turnOffAnimate();
     }
     this.carregarAtendimentos();
+  }
+
+  private executarCampainha() {
+    let audio = new Audio();
+    audio.src = "../../../assets/audio/campainha_curta.mp3";
+    audio.load();
+    audio.play();
   }
 
   private isAtendimentoDeveSerApresentado() {
