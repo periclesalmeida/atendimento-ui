@@ -1,8 +1,7 @@
-import {Injectable} from '@angular/core';
-import {environment} from '../../environments/environment';
-import {AppHttp} from '../seguranca/app-http.service';
-import {TipoLocalizacao} from '../core/model';
-import { HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { TipoLocalizacao } from '../core/model';
+import { AppHttp } from '../seguranca/app-http.service';
 
 @Injectable({
   providedIn: 'root'

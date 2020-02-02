@@ -53,8 +53,7 @@ export class MonitorTelaComponent implements OnInit {
   }
 
   private isAtendimentoDeveSerApresentado() {
-    return this.proximoAtendimentoApresentado &&
-           (this.proximoAtendimentoApresentado.id != this.ultimoAtendimentoApresentado.id);
+    return this.proximoAtendimentoApresentado;
   }
 
   private apresentarProximoAtendimento() {
