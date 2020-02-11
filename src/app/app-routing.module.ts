@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './seguranca/auth.guard';
-import { PaginaNaoEncontradaComponent } from './shared/erro/pagina-nao-encontrada.component';
 import { MonitorTelaComponent } from './monitor-tela/monitor-tela.component';
+import { AuthGuard } from './seguranca/auth.guard';
+import { ErrorPageComponent } from './shared/erro/error-page';
+import { PaginaNaoEncontradaComponent } from './shared/erro/pagina-nao-encontrada.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'monitor-tela/:servicos', component: MonitorTelaComponent},
   {path: 'login', component: LoginComponent},
   {path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent},
+  {path: 'error-page', component: ErrorPageComponent},
   {path: '**', redirectTo: '/login'},
 ];
 

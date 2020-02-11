@@ -87,6 +87,7 @@ import { SegurancaModule } from './seguranca/seguranca.module';
 import { AlertaService } from './shared/alerta/alerta.service';
 import { PaginaNaoEncontradaComponent } from './shared/erro/pagina-nao-encontrada.component';
 import { MonitorTelaComponent } from './monitor-tela/monitor-tela.component';
+import { ErrorPageComponent } from './shared/erro/error-page';
 
 
 
@@ -179,6 +180,7 @@ registerLocaleData(localePt);
         AppFooterComponent,
         AppInlineProfileComponent,
         PaginaNaoEncontradaComponent,
+        ErrorPageComponent,
         MonitorTelaComponent,
         LayoutComponent
     ],

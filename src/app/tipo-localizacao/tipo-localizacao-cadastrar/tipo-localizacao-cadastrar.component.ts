@@ -42,14 +42,14 @@ export class TipoLocalizacaoCadastrarComponent implements OnInit {
     this.tipoLocalizacaoService.alterar(this.entidade).subscribe(resposta => {
       this.exibirAlertaDadosGravadosComSucesso();
       this.direcionarParaConsulta();
-    }, error => this.errorHandlerService.handle(error));
+    });
   }
 
   private inserir() {
     this.tipoLocalizacaoService.inserir(this.entidade).subscribe(resposta => {
       this.exibirAlertaDadosGravadosComSucesso();
       this.direcionarParaConsulta();
-    }, error => this.errorHandlerService.handle(error));
+    });
   }
 
   private exibirAlertaDadosGravadosComSucesso() {

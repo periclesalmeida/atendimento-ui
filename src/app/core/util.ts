@@ -14,4 +14,4 @@ export const flash = animation(
     ])
   ),
   { params: { timing: 3, delay: 0 } }
-)
+);

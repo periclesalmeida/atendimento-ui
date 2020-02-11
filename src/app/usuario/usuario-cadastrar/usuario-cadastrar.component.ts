@@ -22,8 +22,8 @@ export class UsuarioCadastrarComponent implements OnInit {
               private router: Router,
               private usuarioService: UsuarioService,
               private permissaoService: PermissaoService,
-              private alertaService: AlertaService,
-              private errorHandlerService: ErrorHandlerService) { }
+              private alertaService: AlertaService
+              ) { }
 
   ngOnInit() {
     const sequencial = this.activatedRoute.snapshot.params['id'];
@@ -50,14 +50,14 @@ export class UsuarioCadastrarComponent implements OnInit {
     this.usuarioService.alterar(this.entidade).subscribe(resposta => {
       this.exibirAlertaDadosGravadosComSucesso();
       this.direcionarParaConsulta();
-    }, error => this.errorHandlerService.handle(error));
+    });
   }
 
   private inserir() {
     this.usuarioService.inserir(this.entidade).subscribe(resposta => {
       this.exibirAlertaDadosGravadosComSucesso();
       this.direcionarParaConsulta();
-    }, error => this.errorHandlerService.handle(error));
+    });
   }
 
   private exibirAlertaDadosGravadosComSucesso() {

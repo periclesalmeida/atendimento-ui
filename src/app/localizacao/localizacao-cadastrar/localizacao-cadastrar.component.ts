@@ -26,8 +26,8 @@ export class LocalizacaoCadastrarComponent implements OnInit {
               private localizacaoService: LocalizacaoService,
               private tipoLocalizacaoService: TipoLocalizacaoService,
               private servicoService: ServicoService,
-              private alertaService: AlertaService,
-              private errorHandlerService: ErrorHandlerService) { }
+              private alertaService: AlertaService
+              ) { }
 
   ngOnInit() {
     const sequencial = this.activatedRoute.snapshot.params['id'];
@@ -61,14 +61,14 @@ export class LocalizacaoCadastrarComponent implements OnInit {
     this.localizacaoService.alterar(this.entidade).subscribe(resposta => {
       this.exibirAlertaDadosGravadosComSucesso();
       this.direcionarParaConsulta();
-    }, error => this.errorHandlerService.handle(error));
+    });
   }
 
   private inserir() {
     this.localizacaoService.inserir(this.entidade).subscribe(resposta => {
       this.exibirAlertaDadosGravadosComSucesso();
       this.direcionarParaConsulta();
-    }, error => this.errorHandlerService.handle(error));
+    });
   }
 
   private exibirAlertaDadosGravadosComSucesso() {
