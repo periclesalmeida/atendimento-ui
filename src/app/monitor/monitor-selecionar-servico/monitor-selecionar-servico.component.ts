@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicoService } from 'src/app/servico/servico.service';
-import { Servico } from 'src/app/core/model';
+import { Servico } from 'src/app/shared/model';
 
 @Component({
   selector: 'app-monitor-selecionar-servico',

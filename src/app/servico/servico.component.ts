@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Servico} from '../core/model';
+import {Servico} from '../shared/model';
 import {ServicoService} from './servico.service';
 import {LazyLoadEvent} from 'primeng/api';
 import {ITEMS_PER_PAGE} from '../shared/constant/pagination.constants';

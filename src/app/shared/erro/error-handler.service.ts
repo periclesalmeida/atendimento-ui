@@ -1,15 +1,13 @@
-import { Injectable } from '@angular/core';
-import { MessageService } from 'primeng/primeng';
-import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AlertaService } from '../alerta/alerta.service';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { NotAuthenticatedError } from '../../seguranca/app-http.service';
+import { AlertaService } from '../alerta/alerta.service';
 
 @Injectable()
 export class ErrorHandlerService {
 
   constructor(
-    private messageService: MessageService,
     private router: Router,
     private alertaService: AlertaService
   ) { }
@@ -32,19 +30,14 @@ export class ErrorHandlerService {
         msg = 'Você não tem permissão para executar esta ação';
       }
 
-      try {
         if ( typeof errorResponse.error === 'string') {
           msg = errorResponse.error;
         } else {
           msg = errorResponse.error[0].errorUser;
         }
-      } catch (e) { }
-
-      console.error('Ocorreu um erro', errorResponse);
 
     } else {
       msg = 'Erro ao processar serviço remoto. Tente novamente.';
-      console.error('Ocorreu um erro', errorResponse);
     }
 
     this.alertaService.exibirErro(msg);

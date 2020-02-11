@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Usuario} from '../core/model';
+import {Usuario} from '../shared/model';
 import {ITEMS_PER_PAGE} from '../shared/constant/pagination.constants';
 import {LazyLoadEvent} from 'primeng/api';
 import {UsuarioService} from './usuario.service';

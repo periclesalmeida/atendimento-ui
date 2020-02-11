@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {AppHttp} from '../seguranca/app-http.service';
-import {Atendimento, Localizacao, Servico} from '../core/model';
+import {Atendimento, Localizacao, Servico} from '../shared/model';
 
 @Injectable({
   providedIn: 'root'

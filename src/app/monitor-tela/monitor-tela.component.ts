@@ -2,8 +2,8 @@ import { transition, trigger, useAnimation, animation, animate, keyframes, style
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AtendimentoService } from '../atendimento/atendimento.service';
-import { Atendimento } from '../core/model';
-import { flash } from '../core/util';
+import { Atendimento } from '../shared/model';
+import { flash } from '../shared/util';
 
 @Component({
   selector: 'app-monitor-tela',

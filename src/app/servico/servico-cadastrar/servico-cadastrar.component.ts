@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Servico } from '../../core/model';
+import { Servico } from '../../shared/model';
 import { AlertaService } from '../../shared/alerta/alerta.service';
 import { MESAGE_SUCCESSFULLY } from '../../shared/constant/mesage.constants';
 import { ServicoService } from '../servico.service';

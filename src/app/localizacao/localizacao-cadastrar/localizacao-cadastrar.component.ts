@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Localizacao, Servico, TipoLocalizacao} from '../../core/model';
+import {Localizacao, Servico, TipoLocalizacao} from '../../shared/model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertaService} from '../../shared/alerta/alerta.service';
 import {ErrorHandlerService} from '../../shared/erro/error-handler.service';

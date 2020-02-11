@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TipoLocalizacaoService} from './tipo-localizacao.service';
-import {TipoLocalizacao} from '../core/model';
+import {TipoLocalizacao} from '../shared/model';
 import {ITEMS_PER_PAGE} from '../shared/constant/pagination.constants';
 import {LazyLoadEvent} from 'primeng/api';
 

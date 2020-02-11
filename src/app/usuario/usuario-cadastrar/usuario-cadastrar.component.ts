@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Permissao, Usuario} from '../../core/model';
+import {Permissao, Usuario} from '../../shared/model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertaService} from '../../shared/alerta/alerta.service';
 import {ErrorHandlerService} from '../../shared/erro/error-handler.service';

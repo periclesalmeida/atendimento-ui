@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Localizacao} from '../core/model';
+import {Localizacao} from '../shared/model';
 import {ITEMS_PER_PAGE} from '../shared/constant/pagination.constants';
 import {LazyLoadEvent} from 'primeng/api';
 import {LocalizacaoService} from './localizacao.service';

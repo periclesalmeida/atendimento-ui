@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ServicoService} from '../../servico/servico.service';
-import {Atendimento, Servico} from '../../core/model';
+import {Atendimento, Servico} from '../../shared/model';
 import {AtendimentoService} from '../atendimento.service';
 
 @Component({

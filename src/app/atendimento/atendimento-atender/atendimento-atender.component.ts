@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Atendimento, Localizacao } from '../../core/model';
+import { Atendimento, Localizacao } from '../../shared/model';
 import { LocalizacaoService } from '../../localizacao/localizacao.service';
 import { AtendimentoService } from '../atendimento.service';
 

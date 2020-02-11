@@ -77,17 +77,17 @@ import { TreeTableModule } from 'primeng/treetable';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
 import { AppFooterComponent } from './layout/app.footer.component';
 import { AppMenuComponent, AppSubMenuComponent } from './layout/app.menu.component';
 import { AppInlineProfileComponent } from './layout/app.profile.component';
 import { AppTopbarComponent } from './layout/app.topbar.component';
 import { LayoutComponent } from './layout/layout.component';
+import { MonitorTelaComponent } from './monitor-tela/monitor-tela.component';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { AlertaService } from './shared/alerta/alerta.service';
-import { PaginaNaoEncontradaComponent } from './shared/erro/pagina-nao-encontrada.component';
-import { MonitorTelaComponent } from './monitor-tela/monitor-tela.component';
 import { ErrorPageComponent } from './shared/erro/error-page';
+import { PaginaNaoEncontradaComponent } from './shared/erro/pagina-nao-encontrada.component';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -167,10 +167,10 @@ registerLocaleData(localePt);
         TreeTableModule,
         VirtualScrollerModule,
         CaptchaModule,
-        CoreModule,
         SegurancaModule,
         NgProgressModule,
-        AppRoutingModule
+        AppRoutingModule,
+        SharedModule
     ],
     declarations: [
         AppComponent,
