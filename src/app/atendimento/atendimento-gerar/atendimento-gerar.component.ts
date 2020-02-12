@@ -21,6 +21,11 @@ export class AtendimentoGerarComponent implements OnInit {
     this.exibirDialog = false;
   }
 
+  imprimir() {
+    window.print();
+    this.exibirDialog = false;
+  } 
+
   gerar(servico: Servico) {
     this.atendimentoService.gerar(servico).subscribe(
       retorno => {

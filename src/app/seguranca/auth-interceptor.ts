@@ -49,18 +49,7 @@ export class AuthInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(
             retry(1),
             catchError((httpErrorResponse: HttpErrorResponse) => {
-                let errorMessage = null;
-
-                if (httpErrorResponse.status === 400) {
-                    errorMessage = httpErrorResponse.error.map(function (message) {
-                        return message.errorUser
-                    });
-
-                    this.errorHandlerService.handle(errorMessage.toString());
-                } else {
-                    this.router.navigate(['/error-page']);
-                }
-
+                let errorMessage = this.errorHandlerService.handle(httpErrorResponse);
                 return throwError(errorMessage);
             })
         );

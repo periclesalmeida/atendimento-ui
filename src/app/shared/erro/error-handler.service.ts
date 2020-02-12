@@ -1,7 +1,5 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NotAuthenticatedError } from '../../seguranca/app-http.service';
 import { AlertaService } from '../alerta/alerta.service';
 
 @Injectable()
@@ -12,35 +10,18 @@ export class ErrorHandlerService {
     private alertaService: AlertaService
   ) { }
 
-  handle(errorResponse: any) {
-    let msg: string;
+  handle(httpErrorResponse: any):String {
+    let errorMessage = null;
 
-    if (typeof errorResponse === 'string') {
-      msg = errorResponse;
-
-    } else if (errorResponse instanceof NotAuthenticatedError) {
-      msg = 'Sua sessão expirou!';
-      this.router.navigate(['/login']);
-
-    } else if (errorResponse instanceof HttpErrorResponse
-        && errorResponse.status >= 400 && errorResponse.status <= 499) {
-      msg = 'Ocorreu um erro ao processar a sua solicitação';
-
-      if (errorResponse.status === 403) {
-        msg = 'Você não tem permissão para executar esta ação';
-      }
-
-        if ( typeof errorResponse.error === 'string') {
-          msg = errorResponse.error;
-        } else {
-          msg = errorResponse.error[0].errorUser;
-        }
-
+    if (httpErrorResponse.status === 400) {
+        errorMessage = httpErrorResponse.error.map(function (message) {
+            return message.errorUser
+        });
+        this.alertaService.exibirErro(errorMessage.toString());
     } else {
-      msg = 'Erro ao processar serviço remoto. Tente novamente.';
+        this.router.navigate(['/error-page']);
     }
 
-    this.alertaService.exibirErro(msg);
+    return errorMessage;
   }
-
 }
