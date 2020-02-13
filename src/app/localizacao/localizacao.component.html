@@ -19,7 +19,7 @@
         </p-toolbar>
         <p-table [value]="listaEntidade" [paginator]="true" paginatorPosition="both" [lazy]="true"
                  (onLazyLoad)="loadLazy($event)" [paginator]="true"
-                 [rows]="5" [totalRecords]="totalElements">
+                 [rows]="5" [totalRecords]="totalElements" [responsive]="true">
           <ng-template pTemplate="header">
             <tr>
               <th col-acoes>AÇÕES</th>

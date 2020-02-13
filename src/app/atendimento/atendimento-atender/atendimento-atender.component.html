@@ -11,7 +11,7 @@
           <div class="ui-g-12">
             <div *ngIf="!localizacao">
               <div *ngFor="let entidade of localizacoes">
-                <div class="ui-g-2">
+                <div class="ui-g-12 ui-md-2">
                   <a (click)="selecionarLocalizacao(entidade)" href="javascript:void(0)">
                     <div class="ui-g card colorbox colorbox-1">
                       <div class="ui-g-12">
@@ -25,10 +25,10 @@
             </div>
 
             <div *ngIf="localizacao">
-              <div class="ui-g-1">
+              <div class="ui-g-12 ui-md-1">
               </div>
 
-              <div class="ui-g-3">
+              <div class="ui-g-12 ui-md-3">
                 <a (click)="chamarProximo()" href="javascript:void(0)">
                   <div class="ui-g card colorbox colorbox-1">
                     <div class="ui-g-4">
@@ -42,7 +42,7 @@
                 </a>
               </div>
 
-              <div class="ui-g-3">
+              <div class="ui-g-12 ui-md-3">
                 <a (click)="chamarNovamenteAtendimentoAnterior()" href="javascript:void(0)">
                   <div class="ui-g card colorbox colorbox-2">
                     <div class="ui-g-5">
@@ -57,7 +57,7 @@
                 </a>
               </div>
 
-              <div class="ui-g-3">
+              <div class="ui-g-12 ui-md-3">
                 <a (click)="alterarLocalizacao()" href="javascript:void(0)">
                   <div class="ui-g card colorbox colorbox-3">
                     <div class="ui-g-4">
@@ -70,11 +70,11 @@
                   </div>
                 </a>
               </div>
-              <div class="ui-g-1">
+              <div class="ui-g-12 ui-md-1">
               </div>
 
-              <div class="ui-g-6">
-                <p-table [value]="atendimentosRealizados" dataKey="sequencial">
+              <div class="ui-g-12 ui-md-6">
+                <p-table [value]="atendimentosRealizados" dataKey="sequencial" [responsive]="true">
                   <ng-template pTemplate="caption">
                     ATENDIDOS
                   </ng-template>
@@ -114,8 +114,8 @@
                 </p-table>
               </div>
 
-              <div class="ui-g-6">
-                <p-table [value]="atendimentosEmEspera" dataKey="sequencial">
+              <div class="ui-g-12 ui-md-6">
+                <p-table [value]="atendimentosEmEspera" dataKey="sequencial" [responsive]="true">
                   <ng-template pTemplate="caption">
                     EM ESPERA
                   </ng-template>

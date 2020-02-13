@@ -15,24 +15,22 @@
               </div>
             </p-header>
             <div class="ui-g form-group">
-              <div class="ui-g-12 ">
-                <div class="ui-g-4 ">
+                <div class="ui-g-12 ui-md-4 ">
                   <label>Descrição *</label><br/>
                   <input pInputText type="text" name="descricao" [(ngModel)]="entidade.descricao" #descricao="ngModel" required style="width: 100%; ">
                   <app-message [control]="descricao" error="required" text="Obrigatório informar a descrição"></app-message>
                 </div>
-                <div class="ui-g-4 ">
+                <div class="ui-g-12 ui-md-4 "> 
                   <label>Tipo *</label><br/>
                   <p-dropdown  name="cor" [(ngModel)]="entidade.tipo" #cor="ngModel" optionLabel="descricao" [options]="tipos"
                                placeholder="SELECIONE" showClear="true" required="true"></p-dropdown>
                   <app-message [control]="cor" error="required" text="Obrigatório informar o Tipo"></app-message>
                 </div>
-                <div class="ui-g-4 ">
+                <div class="ui-g-12 ui-md-4 ">
                   <label>Ativo *</label><br/>
                   <p-toggleButton name="ativo" [(ngModel)]="entidade.ativo" onLabel="SIM" offLabel="NÃO"></p-toggleButton>
                 </div>
-              </div>
-              <div class="ui-g-12 ">
+              <div class="ui-g-12 ui-md-12">
                 <p-panel>
                   <p-header>
                     <div class="ui-toolbar-group-left">
@@ -41,7 +39,7 @@
                     <div class="ui-toolbar-group-right">
                     </div>
                   </p-header>
-                  <p-table [value]="servicos" [(selection)]="entidade.servicos" dataKey="id">
+                  <p-table [value]="servicos" [(selection)]="entidade.servicos" dataKey="id" [responsive]="true">
                     <ng-template pTemplate="header">
                       <tr>
                         <th col-acoes>

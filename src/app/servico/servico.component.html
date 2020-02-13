@@ -5,7 +5,7 @@
       <form autocomplete="off" (ngSubmit)="consultar()">
         <p-toolbar >
           <div class="ui-toolbar-group-left">
-            <div class="ui-g-12 ">
+            <div class="ui-g-12 ui-md-12">
               <input pInputText type="text" name="descricao" [(ngModel)]="entidade.descricao"
                       placeholder="DESCRIÇÃO">
 
@@ -18,7 +18,7 @@
           </div>
         </p-toolbar>
         <p-table [value]="listaEntidade" [paginator]="true" paginatorPosition="both" [lazy]="true"
-                 (onLazyLoad)="loadLazy($event)" [paginator]="true"
+                 (onLazyLoad)="loadLazy($event)" [paginator]="true" [responsive]="true" 
                  [rows]="5" [totalRecords]="totalElements">
           <ng-template pTemplate="header">
             <tr>

@@ -5,39 +5,36 @@
         <p-panel>
           <p-header>
             <div class="ui-toolbar-group-center">
-              <h1><span>Gerar Senha para o Serviço:</span></h1>
+              <h1><span>Gerar Senha:</span></h1>
             </div>
           </p-header>
           <div class="ui-g dashboard">
             <div class="ui-g-12">
               <div *ngFor="let entidade of servicos">
-                <div class="ui-g-12">
-                  <div class="ui-g-3">
-                  </div>
-                  <div class="ui-g-6">
-                    <a (click)="gerar(entidade)" href="javascript:void(0)">
-                      <div class="ui-g card colorbox " [ngStyle]="{ 'background-color' : entidade.tipoCorHtml }">
-                        <div class="ui-g-12">
-                          <span class="colorbox-count">{{entidade.descricao}}</span>
-                        </div>
+                <div class="ui-g-12 ui-md-3">
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                  <a (click)="gerar(entidade)" href="javascript:void(0)">
+                    <div class="ui-g card colorbox " [ngStyle]="{ 'background-color' : entidade.tipoCorHtml }">
+                      <div class="ui-g-12">
+                        <span class="colorbox-count">{{entidade.descricao}}</span>
                       </div>
-                    </a>
-                  </div>
-                  <div class="ui-g-2">
-                    <a (click)="gerarPrioridade(entidade)" href="javascript:void(0)">
-                      <div class="ui-g card colorbox " [ngStyle]="{ 'background-color' : entidade.tipoCorHtml }">
-                        <div class="ui-g-12">
-                          <span class="colorbox-count">
-                            <span style="font-size: 18px;">PREFERÊNCIAL</span>
-                          </span>
-                        </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="ui-g-12 ui-md-2">
+                  <a (click)="gerarPrioridade(entidade)" href="javascript:void(0)">
+                    <div class="ui-g card colorbox " [ngStyle]="{ 'background-color' : entidade.tipoCorHtml }">
+                      <div class="ui-g-12">
+                        <span class="colorbox-count">
+                          <span style="font-size: 18px;">PREFERÊNCIAL</span>
+                        </span>
                       </div>
-                    </a>
-                  </div>
+                    </div>
+                  </a>
+                </div>
 
-                  <div class="ui-g-1">
-                  </div>
-
+                <div class="ui-g-12 ui-md-1">
                 </div>
               </div>
             </div>
@@ -62,6 +59,7 @@
     <span style="font-size: 12px;">Aguarde sua senha ser chamada.</span><br />
   </div>
   <p-footer>
-    <button type="button" pButton icon="pi pi-print" (click)="imprimir()" label="Imprimir"></button>
+    <button pButton type="button" class="ui-button-danger" icon="ui-icon-close" (click)="exibirDialog=false" label="Fechar"></button>
+    <button pButton type="button" class="ui-button-success" icon="ui-icon-print" (click)="imprimir()" label="Imprimir"></button>
   </p-footer>
 </p-dialog>

@@ -15,7 +15,7 @@
               </div>
             </p-header>
             <div class="ui-g form-group">
-              <div class="ui-g-12 ">
+              <div class="ui-g-12 ui-md-12">
                 <label>Descrição *</label><br/>
                 <input pInputText type="text" name="nome"  [(ngModel)]="entidade.descricao" #descricao="ngModel" required style="width: 100%; ">
                 <app-message [control]="descricao" error="required" text="Obrigatório informar a descrição"></app-message>

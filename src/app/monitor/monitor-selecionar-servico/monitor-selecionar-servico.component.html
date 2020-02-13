@@ -12,9 +12,9 @@
             <div class="ui-g-12">
               <div *ngFor="let entidade of servicos">
                 <div class="ui-g-12">
-                  <div class="ui-g-3">
+                  <div class="ui-g-12 ui-md-3">
                   </div>
-                  <div class="ui-g-6">
+                  <div class="ui-g-12 ui-md-6">
                     <a (click)="selecionarServico(entidade)" href="javascript:void(0)"
                       *ngIf="!isServicoSelecionado(entidade)">
                       <div class="ui-g card colorbox " [ngStyle]="{ 'background-color' : entidade.tipoCorHtml }">
@@ -33,25 +33,21 @@
                       </div>
                     </a>
                   </div>
-                  <div class="ui-g-3">
+                  <div class="ui-g-12 ui-md-3">
                   </div>
                 </div>
               </div>
 
-              <div class="ui-g-12">
-                <div class="ui-g-3">
-                </div>
-                <div class="ui-g-6">
-                  <button icon="ui-icon-airplay" pButton type="button" label="ABRIR MONITOR" style="margin-bottom:10px"
-                    [routerLink]="['/monitor-tela', getServicosIds()]"
-                    class="ui-button-info"></button>
-                  <button icon="ui-icon-clear" (click)="limparTudo()" pButton type="button" label="LIMPAR SELEÇÃO" style="margin-bottom:10px"
-                    class="ui-button-danger"></button>
-                </div>
-                <div class="ui-g-3">
-                </div>
+              <div class="ui-g-12 ui-md-3">
               </div>
-
+              <div class="ui-g-12 ui-md-6">
+                <button icon="ui-icon-airplay" pButton type="button" label="ABRIR MONITOR" style="margin-bottom:10px"
+                  [routerLink]="['/monitor-tela', getServicosIds()]" class="ui-button-info"></button>
+                <button icon="ui-icon-clear" (click)="limparTudo()" pButton type="button" label="LIMPAR SELEÇÃO"
+                  style="margin-bottom:10px" class="ui-button-danger"></button>
+              </div>
+              <div class="ui-g-12 ui-md-3">
+              </div>
             </div>
           </div>
         </p-panel>
