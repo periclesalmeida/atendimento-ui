@@ -35,6 +35,10 @@ export class MonitorTelaComponent implements OnInit {
     clearInterval();
   }
 
+  isExisteAtendimento(): boolean {
+      return this.ultimoAtendimentoApresentado != null;
+  }
+
   private verificarAtendimentosIhApresentarSeExistir() {
     if (this.isAtendimentoDeveSerApresentado()) {
       this.apresentarProximoAtendimento();

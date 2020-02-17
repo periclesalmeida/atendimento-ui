@@ -1,58 +1,69 @@
-<div class="ui-g">
-  <div class="ui-g-8" colunaEsquerda>
-    <div divLocalizacao>
-      <span class="font-size-1" spanTipoLocalizacao>
-        {{ultimoAtendimentoApresentado?.localizacao.tipo.descricao}}:
-      </span>
-      <span class="font-size-2" spanLocalizacao>
-        <br />
-        {{ultimoAtendimentoApresentado?.localizacao.descricao}}
-      </span>
-    </div>
-    <div divSenha>
-      <div>
-        <span class="font-size-1" spanSenhaDescricao>
-          SENHA:
+<div *ngIf="!isExisteAtendimento()">
+  <div class="ui-g">
+    <div class="ui-g-12" divSemAtendimento>
+      <div divTextoSemAtendimento>
+        <span class="font-size-1" spanSemAtendimento>
+          NÃO EXISTE(M) ATENDIMENTO(S)
         </span>
-        <br />
-        <div [@flash]="flash" >
-          <span class="font-size-3" spanSenha
-            [ngStyle]="{ 'color' : ultimoAtendimentoApresentado?.indicadorPrioridade ? '#FFFF00':'#ffffff' }">
-            <span id="target">{{ultimoAtendimentoApresentado?.numeroAtendimentoFormatado}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isExisteAtendimento()">
+  <div class="ui-g">
+    <div class="ui-g-8" colunaEsquerda>
+      <div divLocalizacao>
+        <span class="font-size-1" spanLocalizacao>
+          {{ultimoAtendimentoApresentado?.localizacao.tipo.descricao}}:
+          {{ultimoAtendimentoApresentado?.localizacao.descricao}}
+        </span>
+      </div>
+      <div divSenha>
+        <div>
+          <span class="font-size-1" spanSenhaDescricao>
+            SENHA:
           </span>
-          <div *ngIf="ultimoAtendimentoApresentado?.indicadorPrioridade">
+          <br />
+          <div [@flash]="flash">
+            <span class="font-size-3" spanSenha
+              [ngStyle]="{ 'color' : ultimoAtendimentoApresentado?.indicadorPrioridade ? '#FFFF00':'#ffffff' }">
+              <span id="target">{{ultimoAtendimentoApresentado?.numeroAtendimentoFormatado}}</span>
+            </span>
+            <div *ngIf="ultimoAtendimentoApresentado?.indicadorPrioridade">
+              <br />
+              <span class="font-size-1" spanPrioridade>
+                PRIORIDADE
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="ultimoAtendimentoApresentado?.usuario">
+        <div divFuncionario>
+          <div>
+            <span class="font-size-1" spanFuncionarioDescricao>
+              FUNCIONÁRIO:
+            </span>
             <br />
-            <span class="font-size-1" spanPrioridade>
-              PRIORIDADE
+            <span class="font-size-1" spanFuncionario>
+              {{ultimoAtendimentoApresentado?.usuario?.login}}
             </span>
           </div>
         </div>
       </div>
     </div>
-    <div *ngIf="ultimoAtendimentoApresentado?.usuario">
-      <div divFuncionario>
-        <div>
-          <span class="font-size-1" spanFuncionarioDescricao>
-            FUNCIONÁRIO:
-          </span>
-          <br />
-          <span class="font-size-1" spanFuncionario>
-            {{ultimoAtendimentoApresentado?.usuario?.login}}
-          </span>
+    <div class="ui-g-4" colunaDireita>
+      <div *ngFor="let entidade of atendimentosApresentados">
+        <div divListaAtendimento>
+          <span class="font-size-5" spanListaAtendimento>
+            {{entidade.numeroAtendimentoFormatado}}
+          </span><br />
+          <span class="font-size-4" spanListaAtendimento>
+            {{entidade.localizacao.tipo.descricao}} : {{entidade.localizacao.descricao}}
+          </span><br />
         </div>
       </div>
     </div>
-
   </div>
-  <div class="ui-g-4" colunaDireita>
-    <div *ngFor="let entidade of atendimentosApresentados">
-      <div divListaAtendimento>
-        <span class="font-size-5" spanListaAtendimento>
-          {{entidade.numeroAtendimentoFormatado}}
-        </span><br />
-        <span class="font-size-4" spanListaAtendimento>
-          {{entidade.localizacao.tipo.descricao}} : {{entidade.localizacao.descricao}}
-        </span><br />
-      </div>
-    </div>
-  </div>
+</div>
