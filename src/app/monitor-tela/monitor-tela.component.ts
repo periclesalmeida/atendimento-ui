@@ -20,6 +20,7 @@ export class MonitorTelaComponent implements OnInit {
   proximoAtendimentoApresentado: Atendimento;
   servicos: any;
   flash: any = 'stateA';
+  idInterval: any;
 
   constructor(private activatedRoute: ActivatedRoute,
     private atendimentoService: AtendimentoService) {
@@ -28,11 +29,11 @@ export class MonitorTelaComponent implements OnInit {
 
   ngOnInit() {
     this.carregarAtendimentos();
-    setInterval(() => this.verificarAtendimentosIhApresentarSeExistir(), 5000);
+     this.idInterval = setInterval(() => this.verificarAtendimentosIhApresentarSeExistir(), 5000);
   }
 
   ngOnDestroy(): void {
-    clearInterval();
+    clearInterval(this.idInterval);
   }
 
   isExisteAtendimento(): boolean {

@@ -16,6 +16,7 @@ export class AtendimentoAtenderComponent implements OnInit {
   entidade: Atendimento;
   atendimentosEmEspera: Array<Atendimento>;
   atendimentosRealizados: Array<Atendimento>;
+  idInterval: any;
 
   constructor(private localizacaoService: LocalizacaoService,
               private atendimentoService: AtendimentoService) {
@@ -61,11 +62,11 @@ export class AtendimentoAtenderComponent implements OnInit {
   }
 
   private carregarMovimentacaoEmIntervalosDeCincoSegundos() {
-    setInterval(() => this.carregarMovimentacaoAtendimentos(), 5000);
+    this.idInterval = setInterval(() => this.carregarMovimentacaoAtendimentos(), 5000);
   }
 
   private cancelarCarregamentoDeMovimentacao() {
-    clearInterval();
+    clearInterval(this.idInterval);
   }
 
   private setarEntidade(retorno) {

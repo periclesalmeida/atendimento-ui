@@ -43,11 +43,22 @@
               </div>
 
               <div class="ui-g-12 ui-md-3">
-                <a (click)="chamarNovamenteAtendimentoAnterior()" href="javascript:void(0)">
+                <a (click)="chamarNovamenteAtendimentoAnterior()" href="javascript:void(0)" *ngIf="entidade">
                   <div class="ui-g card colorbox colorbox-2">
+                    <div class="ui-g-6">
+                      <span class="colorbox-count"> {{entidade?.numeroAtendimentoFormatado}} </span>
+                      <span class="colorbox-name"> SENHA </span>
+                    </div>
+                    <div class="ui-g-6">
+                      <span class="colorbox-name" style="font-weight: bold">CHAMAR NOVAMENTE</span>
+                    </div>
+                  </div>
+                </a>
+
+                <a (click)="chamarNovamenteAtendimentoAnterior()" *ngIf="!entidade">
+                  <div class="ui-g card colorbox colorbox-5">
                     <div class="ui-g-5">
-                      <span class="colorbox-count" *ngIf="entidade"> {{entidade?.numeroAtendimentoFormatado}} </span>
-                      <span class="colorbox-count" *ngIf="!entidade"> X </span>
+                      <span class="colorbox-count">?</span>
                       <span class="colorbox-name"> SENHA </span>
                     </div>
                     <div class="ui-g-7">
