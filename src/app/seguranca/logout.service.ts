@@ -16,7 +16,7 @@ export class LogoutService {
     private auth: AuthService,
     private router: Router
   ) {
-    this.tokensRenokeUrl = `${environment.API_URL}/tokens/revoke`;
+    this.tokensRenokeUrl = `${environment.API_URL}/token/revoke`;
   }
 
   logout() {

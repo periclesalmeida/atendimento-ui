@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import Swal from "sweetalert2";
-import { LogoutService } from '../../seguranca/logout.service';
 
 const TITULO_ERRO = "ERRO";
 const TITULO_AVISO = "AVISO";
@@ -11,7 +10,7 @@ const TITULO_SUCESSO = "SUCESSO";
 })
 export class AlertaService {
 
-    constructor(private logoutService: LogoutService) {
+    constructor() {
     }
 
     exibirInformacao(mensagem) {

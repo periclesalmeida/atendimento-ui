@@ -1,19 +1,18 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHandler} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHandler } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { from as observableFromPromise, Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { ErrorHandlerService } from '../shared/erro/error-handler.service';
+import { AuthService } from './auth.service';
 
-import {from as observableFromPromise, Observable} from 'rxjs';
 
-import {AuthService} from './auth.service';
 
-export class NotAuthenticatedError {}
+export class NotAuthenticatedError { }
 
 @Injectable()
 export class AppHttp extends HttpClient {
 
-  constructor(
-    private auth: AuthService,
-    private httpHandler: HttpHandler
-  ) {
+  constructor(private auth: AuthService, private httpHandler: HttpHandler, private errorHandlerService: ErrorHandlerService) {
     super(httpHandler);
   }
 
@@ -54,13 +53,22 @@ export class AppHttp extends HttpClient {
           if (this.auth.isAccessTokenInvalido()) {
             throw new NotAuthenticatedError();
           }
-          return fn().toPromise();
+          return this.executeFunction(fn);
         });
 
       return observableFromPromise(chamadaNovoAccessToken);
     } else {
-      return fn();
+      return this.executeFunction(fn);
     }
   }
 
+  private executeFunction(fn: Function) {
+    return fn().pipe(
+      retry(1),
+      catchError((httpErrorResponse: HttpErrorResponse) => {
+        let errorMessage = this.errorHandlerService.handle(httpErrorResponse);
+        return throwError(errorMessage);
+      })
+    );
+  }
 }

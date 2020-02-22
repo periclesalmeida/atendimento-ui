@@ -1,16 +1,13 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { parse } from 'url';
 import { environment } from '../../environments/environment';
-import { ErrorHandlerService } from '../shared/erro/error-handler.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-    constructor(private injector: Injector, private router: Router, private errorHandlerService: ErrorHandlerService) { }
+    constructor(private injector: Injector) { }
 
     intercept(
         request: HttpRequest<any>,
@@ -46,12 +43,6 @@ export class AuthInterceptor implements HttpInterceptor {
             });
         }
 
-        return next.handle(request).pipe(
-            retry(1),
-            catchError((httpErrorResponse: HttpErrorResponse) => {
-                let errorMessage = this.errorHandlerService.handle(httpErrorResponse);
-                return throwError(errorMessage);
-            })
-        );
+        return next.handle(request);
     }
 }

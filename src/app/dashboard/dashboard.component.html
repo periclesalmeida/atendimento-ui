@@ -1,37 +1,25 @@
 <div class="ui-g dashboard">
-    <div class="ui-g-12 ui-md-4">
+    <div class="ui-g-12 ui-md-6">
         <div class="card overview">
             <div class="overview-content clearfix">
                 <span class="overview-title">Atendimento</span>
-                <span class="overview-badge">+%90</span>
-                <span class="overview-detail">357 / Mês</span>
+                <span class="overview-badge"></span>
+                <span class="overview-detail">{{dashboard?.quantidadeAtendimentoNoMes}}/Mês</span>
             </div>
             <div class="overview-footer">
                 <img src="assets/layout/images/dashboard/sales.svg" style="width: 100%" />
             </div>
         </div>
     </div>
-    <div class="ui-g-12 ui-md-4">
+    <div class="ui-g-12 ui-md-6">
         <div class="card overview">
             <div class="overview-content clearfix">
                 <span class="overview-title">Atendimento</span>
-                <span class="overview-badge">+%60</span>
-                <span class="overview-detail">17 / semana</span>
+                <span class="overview-badge"></span>
+                <span class="overview-detail">{{dashboard?.quantidadeAtendimentoNaSemana}}/semana</span>
             </div>
             <div class="overview-footer">
                 <img src="assets/layout/images/dashboard/views.svg" style="width: 100%" />
-            </div>
-        </div>
-    </div>
-    <div class="ui-g-12 ui-md-4">
-        <div class="card overview">
-            <div class="overview-content clearfix">
-                <span class="overview-title">Usuário do Mês</span>
-                <span class="overview-badge">+%45</span>
-                <span class="overview-detail">300 / Péricles</span>
-            </div>
-            <div class="overview-footer">
-                <img src="assets/layout/images/dashboard/progress.svg" style="width: 100%" />
             </div>
         </div>
     </div>
@@ -42,8 +30,8 @@
                 <i class="material-icons">people</i>
             </div>
             <div class="ui-g-8">
-                <span class="colorbox-name">Atendidos</span>
-                <span class="colorbox-count">50</span>
+                <span class="colorbox-name">Atendidos/Hoje</span>
+                <span class="colorbox-count">{{dashboard?.quantidadeAtendimentosHoje}}</span>
             </div>
         </div>
     </div>
@@ -53,8 +41,8 @@
                 <i class="material-icons">report</i>
             </div>
             <div class="ui-g-8">
-                <span class="colorbox-name">Em Espera</span>
-                <span class="colorbox-count">22</span>
+                <span class="colorbox-name">Em Espera/Hoje</span>
+                <span class="colorbox-count">{{dashboard?.quantidadeAtendimentosemEsperaHoje}}</span>
             </div>
         </div>
     </div>
@@ -65,7 +53,7 @@
             </div>
             <div class="ui-g-8">
                 <span class="colorbox-name">Serviços</span>
-                <span class="colorbox-count">9</span>
+                <span class="colorbox-count">{{dashboard?.quantidadeServicos}}</span>
             </div>
         </div>
     </div>
@@ -76,7 +64,7 @@
             </div>
             <div class="ui-g-8">
                 <span class="colorbox-name">Localidades</span>
-                <span class="colorbox-count">35</span>
+                <span class="colorbox-count">{{dashboard?.quantidadeLocalidades}}</span>
             </div>
         </div>
     </div>

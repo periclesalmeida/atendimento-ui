@@ -5,23 +5,25 @@ import { AlertaService } from '../alerta/alerta.service';
 @Injectable()
 export class ErrorHandlerService {
 
-  constructor(
-    private router: Router,
-    private alertaService: AlertaService
-  ) { }
+  constructor(private router: Router, private alertaService: AlertaService) { }
 
-  handle(httpErrorResponse: any):String {
-    let errorMessage = null;
-
+  handle(httpErrorResponse: any) {
     if (httpErrorResponse.status === 400) {
-        errorMessage = httpErrorResponse.error.map(function (message) {
-            return message.errorUser
-        });
-        this.alertaService.exibirErro(errorMessage.toString());
+      this.alertaService.exibirErro(this.returnErrorMessage(httpErrorResponse));
     } else {
-        this.router.navigate(['/error-page']);
+      this.router.navigate(['/error-page']);
     }
+  }
 
+  returnErrorMessage(httpErrorResponse) {
+    let errorMessage = null;
+    if (httpErrorResponse.error.error === 'invalid_grant') {
+      errorMessage = 'Usuário ou senha inválida!';
+    } else {
+      errorMessage = httpErrorResponse.error.map(function (message) {
+        return message.errorUser
+      });
+    }
     return errorMessage;
   }
 }

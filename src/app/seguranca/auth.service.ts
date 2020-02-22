@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from '../../environments/environment';
 
  @Injectable()
 export class AuthService {
@@ -9,10 +9,7 @@ export class AuthService {
   oauthTokenUrl: string;
   jwtPayload: any;
 
-  constructor(
-    private http: HttpClient,
-    private jwtHelper: JwtHelperService
-  ) {
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {
     this.oauthTokenUrl = `${environment.API_URL}/oauth/token`;
     this.carregarToken();
   }
@@ -30,11 +27,6 @@ export class AuthService {
         this.armazenarToken(response.access_token);
       })
       .catch(response => {
-        if (response.status === 400) {
-          if (response.error.error === 'invalid_grant') {
-            return Promise.reject('Usuário ou senha inválida!');
-          }
-        }
         return Promise.reject(response);
       });
   }
@@ -84,10 +76,6 @@ export class AuthService {
   isAccessTokenInvalido() {
     const token = localStorage.getItem('token');
     return !token || this.jwtHelper.isTokenExpired(token);
-  }
-
-  resetar(resetarSenhaVM) {
-    return this.http.put(`${environment.API_URL}/api/aluno-egresso/usuario/resetar-senha`, resetarSenhaVM);
   }
 
   private armazenarToken(token: string) {
