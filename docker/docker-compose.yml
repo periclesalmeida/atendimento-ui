@@ -1,15 +1,35 @@
 version: '2'
 services:
-  peg-ui:
-    image: srv-rep02:5000/peg-ui.dev:latest
-    container_name: peg-ui.dev
+  mongo:
+    image: mongo
+    container_name: mongo
     ports:
-     - "8300:80"
-    networks:
-      - mynet
-    restart: unless-stopped
+      - "27017:27017"
+    volumes:
+      - $HOME/repositorio/volumes/mongo/data:/data/db
+      - $HOME/repositorio/volumes/mongo/backup:/data/
 
-networks:
-  mynet:
-    external:
-      name: mynet
+  api:
+    image: periclesalmeida/padrao:atendimento-1.0
+    container_name: api
+    ports:
+      - "8083:8083"
+    environment:
+      SERVER_PORT: 8083
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATA_MONGODB_DATABASE: atendimento
+      SPRING_DATA_MONGODB_HOST: mongo
+      SPRING_DATA_MONGODB_PORT: 27017
+      JAVA_OPTS: "-Xmx512m -Xms256m"
+    mem_limit: 1024m
+    links:
+      - mongo:mongo
+    depends_on:
+      - mongo
+
+  ui:
+    image: periclesalmeida/padrao:atendimento-ui-1.0
+    container_name: ui
+    ports:
+     - "4200:80"
+

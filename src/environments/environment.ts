@@ -5,8 +5,8 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://127.0.0.1:8083',
-  tokenWhitelistedDomains: [  new RegExp('127.0.0.1:8083') ],
+  API_URL: 'http://localhost:8083',
+  tokenWhitelistedDomains: [  new RegExp('localhost:8083') ],
   tokenBlacklistedRoutes: [ new RegExp('\/oauth\/token') ],
   env: 'dev'
 };
