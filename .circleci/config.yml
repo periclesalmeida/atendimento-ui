@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/atendimento-ui
+    docker:
+      - image: circleci/node:10-browsers
+
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Npm Install
+          command: npm install
+      - run:
+          name: Npm Build
+          command: npm run build
+      - run:
+          name: Login to DockerHub
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: Docker Build
+          command: docker build ./ -t 'periclesalmeida/padrao:atendimento-ui'$CIRCLE_BUILD_NUM --build-arg env=dev
+
+
+
+
+
