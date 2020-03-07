@@ -13,7 +13,7 @@ jobs:
           command: npm install
       - run:
           name: Npm Build
-          command: npm run build
+          command: npm run build:prod
       - run:
           name: Login to DockerHub
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS
